@@ -1,0 +1,33 @@
+name: 📰 Update Medium Articles
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Every Monday at midnight
+  workflow_dispatch:     # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: pip install -r scripts/requirements.txt
+
+    - name: Run Script
+      run: python scripts/fetch_medium_articles.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add medium-articles.md
+        git commit -m "📝 Update Medium articles list" || echo "No changes to commit"
+        git push
