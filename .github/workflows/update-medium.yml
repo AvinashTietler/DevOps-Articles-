@@ -2,7 +2,7 @@ name: 📰 Update Medium Articles
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Every Monday at midnight
+    - cron: '50 6 * * *'  # Every Day at 12:20 PM
   workflow_dispatch:     # Allow manual trigger
 
 jobs:
