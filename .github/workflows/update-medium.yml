@@ -2,8 +2,11 @@ name: 📰 Update Medium Articles
 
 on:
   schedule:
-    - cron: '50 6 * * *'  # Every Day at 12:20 PM
+    - cron: '50 6 * * *'  # Every Day at 12:20 PM IST
   workflow_dispatch:     # Allow manual trigger
+
+permissions:
+  contents: write
 
 jobs:
   build:
