@@ -2,7 +2,7 @@ import feedparser
 from datetime import datetime
 
 FEED_URL = "https://medium.com/feed/@devopsdiariesinfo"
-OUTPUT_FILE = "medium-articles.md"
+OUTPUT_FILE = "README.md"
 
 def fetch_and_write_articles():
     try:
